@@ -1,0 +1,19 @@
+﻿
+
+@foreach (var item in ViewBag.Doctors)
+{
+    <p>@item.DoctorName</p>
+    <p>@item.Specialization</p>
+    <p>--------------------------------------------------------</p>
+}
+
+
+<p>------------------------------------------------------------------------------------------------------------</p>
+
+
+@foreach (var item in (IEnumerable<Doctor>) ViewData["Doctors"])
+{
+       <p>@item.DoctorName</p>
+    <p>@item.Specialization</p>
+    <p>--------------------------------------------------------</p>
+}

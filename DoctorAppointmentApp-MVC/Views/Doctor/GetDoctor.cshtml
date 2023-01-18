@@ -1,0 +1,17 @@
+﻿@model DoctorAppointmentApp_MVC.Models.Doctor
+
+<div class="card w-25">
+    <div class="card-header">
+        <h3>@Model.DoctorName</h3>
+    </div>
+    <div class="card-body">
+        <img class="card-img" src=@Model.DoctorImg />
+        <p>@Model.Specialization</p>
+        <p>@Model.Email</p>
+    </div>
+    <div class="card-footer">
+        <a asp-action="Index"  asp-controller="Doctor" class="btn btn-primary">
+            Back To List</a>
+    </div>
+    
+</div>
