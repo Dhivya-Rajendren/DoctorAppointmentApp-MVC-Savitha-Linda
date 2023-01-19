@@ -17,5 +17,24 @@ namespace DoctorAppointmentApp_MVC.Controllers
         {
             return View(repo.GetPatientByID(patientId));
         }
+
+        [HttpGet]
+        public IActionResult AddNewPatient()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddNewPatient(Patient patient)
+        {
+            repo.AddNewPatient(patient);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeletePatient(int patientId)
+        {
+            repo.DeletePatient(patientId);
+            return RedirectToAction("Index");
+        }
     }
 }

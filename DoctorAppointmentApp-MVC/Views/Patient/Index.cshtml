@@ -3,6 +3,8 @@
 
 <p class="alert alert-primary mt-4 p-2">Patient Details</p>
 
+<a asp-action="AddNewPatient" class="btn-success btn">New Patient </a>
+<br/>
 
 <table class="w-50 table table-bordered">
     <tr>
@@ -15,6 +17,10 @@
 <th>
     Action
     </th>
+    <th>
+    Action
+    </th>
+
 
 </tr>
 
@@ -27,6 +33,9 @@
         <td>@item.PatientHistory</td>
         <td>
             <a asp-action="GetPatient" asp-route-patientId=@item.PatientId class="btn-warning btn">Details</a>
+        </td>
+          <td>
+            <a asp-action="DeletePatient" asp-route-patientId=@item.PatientId class="btn-danger btn">Delete</a>
         </td>
     </tr>
 }

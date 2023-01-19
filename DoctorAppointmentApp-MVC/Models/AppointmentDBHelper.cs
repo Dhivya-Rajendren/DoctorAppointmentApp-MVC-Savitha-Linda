@@ -11,6 +11,29 @@ namespace DoctorAppointmentApp_MVC.Models
 
         string conString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=DoctorAppointmentDB;Integrated Security=True;";
 
+        public void AddNewPatient(Patient patient)
+        {
+            con = new SqlConnection(conString);
+
+            con.Open();
+            //DML - insert , update and delete
+            string cmdText = "insert into tbl_patients values('" + patient.PatientName + "','" + patient.Email + "'," + patient.Contact + ",'" + patient.PatientHistory + "',' ')";
+            com = new SqlCommand(cmdText,con);
+            com.ExecuteNonQuery();// automatically committed.
+            con.Close();
+        }
+
+        public void DeletePatient(int patientId)
+        {
+            con = new SqlConnection(conString);
+
+            con.Open();
+            //DML - insert , update and delete
+            string cmdText = "Delete From tbl_patients where patientId="+patientId;
+            com = new SqlCommand(cmdText, con);
+            com.ExecuteNonQuery();
+            con.Close();
+        }
 
         public Patient GetPatientByID(int patientID)
         {
@@ -37,7 +60,8 @@ namespace DoctorAppointmentApp_MVC.Models
                 patient.PatientImg = reader.GetString(5);
                 patients.Add(patient);
             }
-
+            reader.Close();
+            con.Close();
             return patients;
            }
     }

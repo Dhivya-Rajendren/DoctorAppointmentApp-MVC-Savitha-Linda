@@ -7,5 +7,9 @@
         List<Patient> GetPatients();
 
         Patient GetPatientByID(int patientID);
+
+        void AddNewPatient(Patient patient);
+
+        void DeletePatient(int patientId);
     }
 }
