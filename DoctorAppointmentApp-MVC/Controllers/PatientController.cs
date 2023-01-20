@@ -13,6 +13,21 @@ namespace DoctorAppointmentApp_MVC.Controllers
         }
 
 
+
+        [HttpGet]
+        public IActionResult UpdatePatient(int patientId)
+        {
+            return View(repo.GetPatientByID(patientId));
+        }
+
+        [HttpPost]
+        public IActionResult UpdatePatient(Patient patient)
+        {
+            repo.UpdatePatient(patient.PatientId,patient.PatientHistory);
+            return RedirectToAction("Index");
+        }
+
+
         public IActionResult GetPatient(int patientId)
         {
             return View(repo.GetPatientByID(patientId));

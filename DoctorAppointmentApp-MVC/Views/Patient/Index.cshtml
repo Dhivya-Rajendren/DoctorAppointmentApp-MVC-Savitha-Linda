@@ -20,6 +20,9 @@
     <th>
     Action
     </th>
+      <th>
+    Action
+    </th>
 
 
 </tr>
@@ -36,6 +39,9 @@
         </td>
           <td>
             <a asp-action="DeletePatient" asp-route-patientId=@item.PatientId class="btn-danger btn">Delete</a>
+        </td>
+         <td>
+            <a asp-action="UpdatePatient" asp-route-patientId=@item.PatientId class="btn-success btn">Edit</a>
         </td>
     </tr>
 }

@@ -1,4 +1,26 @@
 ﻿
-
+@model IEnumerable<DoctorAppointmentApp_MVC.Models.Appointment>
 
 <p class="alert alert-info mt-4 p-2">Appointment Details</p>
+
+<a asp-action="MakeAppointment" class="btn btn-info" >New Appointment</a>
+
+
+<table class="w-75 table table-bordered">
+    <tr>
+        <th>Patient</th>
+        <th>Doctor</th>
+        <th>Reason For Visit</th>
+        <th>Appointment Date Time</th>
+    </tr>
+
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td><a asp-action="GetPatient" asp-route-patientId=@item.PatientId asp-controller="Patient" > @item._Patient.PatientName</a></td>
+            <td><a asp-action="GetDoctor" asp-route-doctorId=@item.DoctorId asp-controller="Doctor" > @item._Doctor.DoctorName</a></td>
+            <td>@item.ReasonForAppointment</td>
+            <td>@item.AppointmentDateTime</td>
+        </tr>
+    }
+</table>
